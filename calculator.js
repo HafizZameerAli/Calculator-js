@@ -35,7 +35,7 @@ function setNum(numb) {
             text: "Enter correct data ",
             className: "info",
             gravity: "bottom", // top or bottom
-            position: "center", // left, center or right
+            position: "left", // left, center or right
             style: {
                background: "linear-gradient(to right, red, red)",
             },
@@ -58,12 +58,22 @@ function newSet() {
 
 
 function backSpace() {
-   inputData.value = inputData.value.toString().slice(0, inputData.value.length - 1)
+    inputData.value = inputData.value.slice(0, -1);
 }
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Backspace") {
+        e.preventDefault();
+        backSpace();
+    }
+});
+
 
 function clearAllData() {
    inputData.value = ""
 }
+
+
 
 
 function Square() {
